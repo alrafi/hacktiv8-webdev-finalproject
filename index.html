@@ -15,36 +15,51 @@
   <body class="">
     <header class="px-24 flex justify-between items-center">
       <div class="">
-        <img
-          src="./img/logo.png"
-          alt="Hafis Irsal | Technology Solution"
-          class="h-16"
-        />
+        <a href="/index.html">
+          <img
+            src="./img/logo.png"
+            alt="Hafis Irsal | Technology Solution"
+            class="h-16"
+          />
+        </a>
       </div>
       <ul class="flex space-x-8">
-        <li>Home</li>
-        <li>Contact Us</li>
-        <li>About Us</li>
-        <li>Portfolio</li>
-        <li>Blog</li>
+        <a href="#home">
+          <li>Home</li>
+        </a>
+        <a href="#contact">
+          <li>Contact Us</li>
+        </a>
+        <a href="#about">
+          <li>About Us</li>
+        </a>
+        <a href="#portfolio">
+          <li>Portfolio</li>
+        </a>
+        <a href="#blog">
+          <li>Blog</li>
+        </a>
       </ul>
       <div class="flex space-x-2">
-        <button>Free Trial</button>
+        <button>Login</button>
         <button class="rounded-md bg-[#06bcd5] text-white px-4 py-1">
-          Order Now
+          Register
         </button>
       </div>
     </header>
 
-    <main class="px-24 bg-[#e9f8fa] py-32 w-full flex items-center">
+    <main id="home" class="px-24 bg-[#e9f8fa] py-32 w-full flex items-center">
       <div class="w-1/2 mr-12">
         <p class="text-5xl font-bold mb-4">Solve Your Tech Problem</p>
         <p class="font-light mb-4 text-xl">
           Anywhere, anytime. We deliver today! And Get an Exceptional Service
           Experience.
         </p>
-        <button class="rounded-md bg-[#06bcd5] text-white px-6 py-2">
-          Contact Us
+        <button
+          id="btn_order"
+          class="rounded-md bg-[#06bcd5] text-white px-6 py-2"
+        >
+          Order Now
         </button>
       </div>
       <div class="w-1/2">
@@ -52,7 +67,7 @@
       </div>
     </main>
 
-    <section class="px-24 py-16 flex flex-col items-center">
+    <section id="solution" class="px-24 py-16 flex flex-col items-center">
       <p class="text-3xl">Our Solution</p>
       <p class="font-light">We deliver best service in the world</p>
 
@@ -94,7 +109,10 @@
       </div>
     </section>
 
-    <section class="px-24 bg-[#e9f8fa] flex flex-col items-center py-16">
+    <section
+      id="about"
+      class="px-24 bg-[#e9f8fa] flex flex-col items-center py-16"
+    >
       <p class="text-2xl">About Us</p>
       <div class="flex mt-16">
         <div class="w-1/2">
@@ -114,7 +132,7 @@
       </div>
     </section>
 
-    <section class="px-24 flex flex-col items-center py-16">
+    <section id="portfolio" class="px-24 flex flex-col items-center py-16">
       <p class="text-2xl">Portfolio</p>
       <p class="font-light">Masterpice that already we delivered</p>
       <div class="grid grid-cols-3 gap-4 mt-16">
@@ -187,7 +205,10 @@
       </div>
     </section>
 
-    <section class="px-24 bg-[#e9f8fa] flex flex-col items-center py-16">
+    <section
+      id="blog"
+      class="px-24 bg-[#e9f8fa] flex flex-col items-center py-16"
+    >
       <p class="text-2xl">Blog</p>
       <p class="font-light">Read any insight about Tech</p>
       <div class="grid grid-cols-4 mt-8 gap-4">
@@ -250,7 +271,7 @@
       </div>
     </section>
 
-    <section class="px-24 flex flex-col items-center py-16">
+    <section id="contact" class="px-24 flex flex-col items-center py-16">
       <p class="text-2xl">Contact Us</p>
       <div class="flex mt-16 items-center space-x-4">
         <div class="w-1/2">
@@ -286,6 +307,84 @@
         <p class="font-light">Blog</p>
       </div>
     </footer>
+
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">
+              Choose our Product!
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Product</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Delivery</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Software Development</td>
+                  <td>$3000</td>
+                  <td>7 days</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>AI Model</td>
+                  <td>$4500</td>
+                  <td>3 days</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>IOT</td>
+                  <td>$1500</td>
+                  <td>21 days</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>Big Data</td>
+                  <td>$2500</td>
+                  <td>10 days</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-dismiss="modal"
+            >
+              Order
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <script src="./js/index.js"></script>
     <script

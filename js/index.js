@@ -1,7 +1,11 @@
-const submitTodo = () => {
-  const input = document.getElementById("input_todo");
+const loadTodos = () => {
+  const todos = JSON.parse(localStorage.getItem("todos")) || [];
+  todos.forEach((todo) => addTodoElement(todo));
+};
 
-  if (input.value === "") return;
+// Function to add a new todo element to the DOM
+const addTodoElement = (todoText) => {
+  const ul = document.getElementById("ul_todo");
 
   // Create a new li element
   const li = document.createElement("li");
@@ -9,7 +13,7 @@ const submitTodo = () => {
 
   // Create a new p element and set its text content
   const p = document.createElement("p");
-  p.textContent = input.value;
+  p.textContent = todoText;
 
   // Create a new button element and set its attributes and text content
   const button = document.createElement("button");
@@ -20,6 +24,7 @@ const submitTodo = () => {
   // Add event listener for the delete button
   button.addEventListener("click", function () {
     li.remove();
+    deleteTodoFromStorage(todoText);
   });
 
   // Append the p and button to the li
@@ -27,9 +32,45 @@ const submitTodo = () => {
   li.appendChild(button);
 
   // Append the li to the ul
-  const ul = document.getElementById("ul_todo");
   ul.appendChild(li);
-  input.value = "";
 };
 
-// window.onload = loadTodos;
+// Function to save todos to localStorage
+function saveTodoToStorage(todoText) {
+  const todos = JSON.parse(localStorage.getItem("todos")) || [];
+  todos.push(todoText);
+  localStorage.setItem("todos", JSON.stringify(todos));
+}
+
+// Function to delete a todo from localStorage
+function deleteTodoFromStorage(todoText) {
+  let todos = JSON.parse(localStorage.getItem("todos")) || [];
+  todos = todos.filter((todo) => todo !== todoText);
+  localStorage.setItem("todos", JSON.stringify(todos));
+}
+
+const submitTodo = () => {
+  const inputElement = document.getElementById("input_todo");
+  const todoText = inputElement.value;
+
+  if (todoText.trim() === "") {
+    alert("Please enter a todo item.");
+    return;
+  }
+
+  addTodoElement(todoText);
+  saveTodoToStorage(todoText);
+
+  // Clear the input field
+  inputElement.value = "";
+};
+
+// Load todos when the page loads
+window.onload = loadTodos;
+
+document.getElementById("btn_order").addEventListener("click", function () {
+  var exampleModal = new bootstrap.Modal(
+    document.getElementById("exampleModal")
+  );
+  exampleModal.show();
+});
