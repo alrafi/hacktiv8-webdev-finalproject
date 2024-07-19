@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media (min-width: 1024px) {
+  .lg\:px-20 {
+    padding-left: 6rem !important;
+    padding-right: 6rem !important;
+  }
+}
